@@ -1,0 +1,61 @@
+							Jason P. Thomas
+							CS685
+							08 December 2007
+
+
+		Lisp And Robots, a Painful Combination
+
+Motivation:	I chose my architecture project due to an affinity for Lisp.
+I've enjoyed programming in Lisp since my second project in CS480.  This was
+an opportunity to delve a little deeper into the language and learn some
+network programming and threading.
+
+Major Design Decisions:	Originally I planned on using CLOS to implement the
+robot interface.  Reading up on CLOS in general and especially on SBCL made it
+sound like CLOS was not worth the effort.  I finally decided to abandon CLOS 
+due to this as well as not knowing how to syncronize the accessor functions in 
+CLOS.  I went with packages and a nice, big closure to avoid global variables 
+and promote some amount of modularity.
+	I initially attempted to use the serial port natively, avoiding sockets
+allthogether.  Alas, this attempt met with very limited success.  Writing and
+reading to and from the serial port was accomplished, but not in a manner that 
+allowed for any predictability.  I then moved on to using sockets for 
+interfacing with the serial daemon.  Documentation for sb-bsd-sockets is 
+horrible withing the sbcl docs, and haphazard on the internet.  A couple of 
+examples were found, but they were all for transmitting strings back and forth.
+Byte array transmission took a lot of digging, but was successful in the end.
+
+What is Implemented:	Arguably most the easy stuff is implemented.  The 
+getters and setters have been coded.  I wasn't sure if this approach was 
+properly Lispy, but I did not think of another way outside of CLOS.  The bitwise
+lisp operators took a bit of time to learn and use correctly for the checksum
+function.  After thumbing through Graham liberally, the checksum function works
+properly.  The submit function is also done.  Some of the peculiarities of
+the sbcl implementation of bsd sockets requires that arrays are created in a
+specific way to insure their ability to be transmitted via socket-send.  The
+keywork arguments :element-type '(unsigned-byte 8) and :initial-element were 
+used to creat simple byte arrays.  Other arrays and simple vectors seemed to be 
+less than welcome being transported via the socket.
+
+What is Not Implemented:	There's a list of unimplemented functions at the
+beginning of robot.lisp.  The more complicated functions are incomplete due to 
+the slow progress on the socket functionality.  Communication was never reliably
+established to a robot, therefore sensor values, bot commands, etc. were never
+able to be tested.  The readBytes() function seemed to be the heart of 
+Robot.java.  The companion function in Robot.lisp was never tackled.  All in
+all, this project is not complete, and non functioning at this point.
+
+Excuses...er...Hurdles:	I bit off more than I could chew on this project given 
+the time I had to work on it.  I still put in approximately 40 hours of work or 
+so on the project, yet I have even less to show for it than the last two 
+projects.  I have learned a great deal in my fiddling with the robots though.  
+I've not only learned a lot more about robotics than I knew before, I've learned
+some new things about Java and Lisp as well.  I always seemed to hit snags and
+snarls along the way.  Some were of my own making and some I blame wholly on the
+cruel, heartless robots.
+
+Conclusion:	I plan to bang away at Robot.lisp in my spare time just for
+kicks.  I'd really like to finish it up where it works properly.  I doubt anyone
+will ever want to program one of the robots in Lisp, but I think the interpreter
+could be useful in dealing with the robots.  I know I could have used it when
+I was first interfacing with them.

@@ -1,0 +1,60 @@
+<Root>
+   <Config>
+      <MCS>
+         <DeviceToMCSMapping>
+            <PAN_LEFT_NEG invert="1" string_output_format="Left,%,">JS1_X</PAN_LEFT_NEG>
+            <PAN_LEFT_NEG>KB_LEFT</PAN_LEFT_NEG>
+            <PAN_RIGHT_POS string_output_format="Right,%,">JS1_X</PAN_RIGHT_POS>
+            <PAN_RIGHT_POS>KB_RIGHT</PAN_RIGHT_POS>
+            <TILT_UP_NEG invert="1" string_output_format="Up,%,">JS1_Y</TILT_UP_NEG>
+            <TILT_UP_NEG>KB_UP</TILT_UP_NEG>
+            <TILT_DOWN_POS invert="0" string_output_format="Down,%,">JS1_Y</TILT_DOWN_POS>
+            <TILT_DOWN_POS>KB_DOWN</TILT_DOWN_POS>
+            <IRIS_OPEN string_output_format="IrisOpen,%,">JS1_POV1_LEFT</IRIS_OPEN>
+            <IRIS_OPEN>KB_UP+KB_LCONTROL</IRIS_OPEN>
+            <IRIS_CLOSE string_output_format="IrisClose,%,">JS1_POV1_RIGHT</IRIS_CLOSE>
+            <IRIS_CLOSE>KB_DOWN+KB_LCONTROL</IRIS_CLOSE>
+            <ZOOM_IN_POS string_output_format="ZoomIn,%," invert="0">JS1_Z</ZOOM_IN_POS>
+            <ZOOM_IN_POS string_output_format="ZoomIn,%," invert="0">JS1_RZ</ZOOM_IN_POS>
+            <ZOOM_IN>KB_UP+KB_LSHIFT</ZOOM_IN>
+            <ZOOM_OUT_NEG string_output_format="ZoomOut,%,">JS1_Z</ZOOM_OUT_NEG>
+            <ZOOM_OUT_NEG string_output_format="ZoomOut,%," invert="0">JS1_RZ</ZOOM_OUT_NEG>
+            <ZOOM_OUT>KB_DOWN+KB_LSHIFT</ZOOM_OUT>
+            <FOCUS_NEAR_NEG string_output_format="FocusNear,%," invert="0">JS1_POV1_UP</FOCUS_NEAR_NEG>
+            <FOCUS_NEAR>KB_LEFT+KB_LSHIFT</FOCUS_NEAR>
+            <AUX_ON_1>KB_1+KB_LCONTROL</AUX_ON_1>
+            <AUX_OFF_1>KB_1+KB_RCONTROL</AUX_OFF_1>
+            <AUX_ON_2>KB_2+KB_LCONTROL</AUX_ON_2>
+            <AUX_OFF_2>KB_2+KB_RCONTROL</AUX_OFF_2>
+            <FOCUS_FAR_POS string_output_format="FocusFar,%," invert="0">JS1_POV1_DOWN</FOCUS_FAR_POS>
+            <FOCUS_FAR>KB_RIGHT+KB_LSHIFT</FOCUS_FAR>
+            <SET_PRESET_1>KB_1+KB_LSHIFT+KB_LCONTROL</SET_PRESET_1>
+            <SET_PRESET_2>KB_2+KB_LSHIFT+KB_LCONTROL</SET_PRESET_2>
+            <SET_PRESET_3>KB_3+KB_LSHIFT+KB_LCONTROL</SET_PRESET_3>
+            <SET_PRESET_4>KB_4+KB_LSHIFT+KB_LCONTROL</SET_PRESET_4>
+            <SET_PRESET_5>KB_5+KB_LSHIFT+KB_LCONTROL</SET_PRESET_5>
+            <SET_PRESET_6>KB_6+KB_LSHIFT+KB_LCONTROL</SET_PRESET_6>
+            <SET_PRESET_7>KB_7+KB_LSHIFT+KB_LCONTROL</SET_PRESET_7>
+            <SET_PRESET_8>KB_8+KB_LSHIFT+KB_LCONTROL</SET_PRESET_8>
+            <SET_PRESET_1 string_output_format="SetPreset,1,">JS1_BTN_1+KB_LSHIFT</SET_PRESET_1>
+            <SET_PRESET_2 string_output_format="SetPreset,2,">JS1_BTN_2+KB_LSHIFT</SET_PRESET_2>
+            <SET_PRESET_3 string_output_format="SetPreset,3,">JS1_BTN_3+KB_LSHIFT</SET_PRESET_3>
+            <SET_PRESET_4 string_output_format="SetPreset,4,">JS1_BTN_4+KB_LSHIFT</SET_PRESET_4>
+            <SET_PRESET_5 string_output_format="SetPreset,5,">JS1_BTN_5+KB_LSHIFT</SET_PRESET_5>
+            <PRESET_1>KB_1+KB_LSHIFT</PRESET_1>
+            <PRESET_2>KB_2+KB_LSHIFT</PRESET_2>
+            <PRESET_3>KB_3+KB_LSHIFT</PRESET_3>
+            <PRESET_4>KB_4+KB_LSHIFT</PRESET_4>
+            <PRESET_5>KB_5+KB_LSHIFT</PRESET_5>
+            <PRESET_6>KB_6+KB_LSHIFT</PRESET_6>
+            <PRESET_7>KB_7+KB_LSHIFT</PRESET_7>
+            <PRESET_8>KB_8+KB_LSHIFT</PRESET_8>
+            <PRESET_1 string_output_format="Preset,1,">JS1_BTN_1</PRESET_1>
+            <PRESET_2 string_output_format="Preset,2,">JS1_BTN_2</PRESET_2>
+            <PRESET_3 string_output_format="Preset,3,">JS1_BTN_3</PRESET_3>
+            <PRESET_4 string_output_format="Preset,4,">JS1_BTN_4</PRESET_4>
+            <PRESET_5 string_output_format="Preset,5,">JS1_BTN_5</PRESET_5>
+         </DeviceToMCSMapping>
+      </MCS>
+   </Config>
+</Root>
