@@ -122,16 +122,17 @@ public class AvoidObstacles
             {
 				//if there is a obsticle in the front
                 if (sonars[3] < 80 || sonars[4] < 80) {
-					System.err.println("Go AWAY");
+					System.out.println("Go AWAY");
 					goAway( sonars, numSonars, robot);
 				}
 				//if reached the goal
 				else if(Math.abs(posX - goalX) < 80 && Math.abs(posY- goalY) < 80){
-					break;
+					System.out.println("DONE!");
+					System.exit(0);
 				}
                 else // forward
                 {
-					System.err.println("Go AWAY");
+					System.out.println("Moving Forward");
                     goToGoal(sonars, numSonars, pioneer);
                 }
             }
