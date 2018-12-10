@@ -1,7 +1,7 @@
 
 //need to include the other packages still
 package gmu.robot.pioneer;
-package com.brianziman.robotics;
+import hokuyo.java.com.brianziman.robotics.*;
 
 import java.net.*;
 import java.io.*;
@@ -26,7 +26,7 @@ public class tangentBug {
   {
       if(args.length < 1)
       {
-        
+
       }
   }
 }
