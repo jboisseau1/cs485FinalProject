@@ -1,6 +1,7 @@
 
 package com.brianziman.robotics;
 
+
 import java.net.*;
 import java.io.*;
 import java.util.*;
@@ -11,13 +12,22 @@ public class HokuyoData{
 public static ArrayList<Integer> data = new ArrayList<Integer>();
 public static ArrayList<Integer> nonmes = new ArrayList<Integer>();
 public static int max, maxindex;
+SCIP11 laser = new SCIP11(5005);
+  public static void main(String args[]){
+
+    checkData(44,725,10 );
+    System.out.println(Arrays.toString(data.toArray()));
+  }
+
+
   public static void checkData(int start, int end, int cluster) {
 
 	for(int i = 0; i < data.size()-1; i++){
       nonmes.set(i, 0);
     }
 
-    checkData(start, end, cluster);
+    data = laser.doDistanceCommand(start, end, cluster);
+
     getLongestDist();
 
   }
