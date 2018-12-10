@@ -17,7 +17,7 @@ import java.util.*;
  * which communicates directly with the serial port.
  * </p>
  * <p>
- * The JavaDoc for the public methods will provide useful information 
+ * The JavaDoc for the public methods will provide useful information
  * for end users.  The more useful public methods may throw a runtime
  * exception, SCIPException is something weird happens, for example,
  * if the connection to the serialdaemon dies, or if invalid data is
@@ -42,7 +42,7 @@ import java.util.*;
  * </p>
  * <p>
  * The following information is based on the URG Series Communication
- * Protocol Specification (SCIP Version 1.1).  
+ * Protocol Specification (SCIP Version 1.1).
  * </p>
  * <p>
  * Host to Sensor commands are in the format:
@@ -68,6 +68,7 @@ import java.util.*;
  * Request is:
  * |'V'|LF/CR|
  *
+ *test
  * Response is:
  * |'V'         |LF|
  * |Status      |LF|
@@ -116,7 +117,7 @@ import java.util.*;
  *            (Encoded using ascii digits 0x30-0x39).
  * Request is:
  * |'G'|sss|eee|cc|LF/CR|
- * 
+ *
  * Response is:
  * |'G'|sss|eee|cc|LF|Status|Data|LF|LF|
  * Where data is broken into blocks of 64 bytes followed by LF.
@@ -197,7 +198,7 @@ public class SCIP11 {
         };
     }
 
-    /** Enable the laser. 
+    /** Enable the laser.
      * Note, an error is generated if you try to enable the
      * laser if it is already enabled, or disable it if it's already
      * disabled.  It logs an "Error" warning to stderr, but does
@@ -207,7 +208,7 @@ public class SCIP11 {
         doLaserCommand(true);
     }
 
-    /** Disable the laser. 
+    /** Disable the laser.
      * Note, an error is generated if you try to enable the
      * laser if it is already enabled, or disable it if it's already
      * disabled.  It logs an "Error" warning to stderr, but does
@@ -217,7 +218,7 @@ public class SCIP11 {
         doLaserCommand(false);
     }
 
-    /** 
+    /**
      * Set the baud rate using one of the BAUD_n constants.
      * This function has no effect when using USB for communication.
      */
@@ -337,11 +338,11 @@ public class SCIP11 {
      * and getSensorSerialNumber().
      * </p>
      * <pre>
-     * The keys are: 
-     * KEY_VENDOR   = "Vender Information" // sic 
-     * KEY_PRODUCT  = "Product Information" 
-     * KEY_FIRMWARE = "Firmware Version" 
-     * KEY_PROTOCOL = "Protocol Version" 
+     * The keys are:
+     * KEY_VENDOR   = "Vender Information" // sic
+     * KEY_PRODUCT  = "Product Information"
+     * KEY_FIRMWARE = "Firmware Version"
+     * KEY_PROTOCOL = "Protocol Version"
      * KEY_SERIAL   = "Sensor Serial Number"
      * KEY_STATUS   = "Undocumented Status Field"
      *
@@ -369,7 +370,7 @@ public class SCIP11 {
     }
 
     /**
-     * Internal method to enable or disable the laser.  
+     * Internal method to enable or disable the laser.
      * Most users should use enable() or disable() methods.
      * Note, an error is generated if you try to enable the
      * laser if it is already enabled, or disable it if it's already
@@ -479,12 +480,12 @@ public class SCIP11 {
         }
         write(DISTANCE);
         byte[] ss = new byte[3];
-        ss[0] = (byte)(0x30 + (start / 100) % 10); 
+        ss[0] = (byte)(0x30 + (start / 100) % 10);
         ss[1] = (byte)(0x30 + (start / 10) % 10);
         ss[2] = (byte)(0x30 + start % 10);
         write(ss);
         byte[] ee = new byte[3];
-        ee[0] = (byte)(0x30 + (end / 100) % 10); 
+        ee[0] = (byte)(0x30 + (end / 100) % 10);
         ee[1] = (byte)(0x30 + (end / 10) % 10);
         ee[2] = (byte)(0x30 + end % 10);
         write(ee);
@@ -699,7 +700,7 @@ public class SCIP11 {
 
     private static final byte VERSION   = (byte)'V';
     private static final byte LASER     = (byte)'L';
-    private static final byte SETTINGS  = (byte)'S'; 
+    private static final byte SETTINGS  = (byte)'S';
     private static final byte DISTANCE  = (byte)'G';
     private static final byte LF        = (byte)0x0a;
     private static final byte LASER_ON  = (byte)0x31;
@@ -715,13 +716,13 @@ public class SCIP11 {
 
     private static final byte[] RESERVED = "0000000".getBytes();
 
-    /** 
+    /**
      * Minimum step value for laser that corresponds with -135 degrees
      * to the right of forward.
      */
     public static final int MIN_STEP = 0;
 
-    /** 
+    /**
      * Maximum step value for laser that corresponds with 135 degrees
      * to the left of forward.
      */
