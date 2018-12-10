@@ -130,6 +130,10 @@ public class AvoidObstacles
             else // forward
             {
 				System.out.println("Moving Forward X:"+robot.getXPos()+ " Y:"+robot.getYPos());
+				for(int i = 0; i<16; i++){
+					System.out.print(i +": "+sonars[i]);
+				}
+				System.out.println("\n");
                 goToGoal(sonars, robot);
             }
 			
