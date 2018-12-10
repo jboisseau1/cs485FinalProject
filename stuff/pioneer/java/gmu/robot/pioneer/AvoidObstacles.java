@@ -2,7 +2,7 @@
  * Example.java
  */
 package gmu.robot.pioneer;
-
+//javac ./AvoidObstacles.java ./PioneerRobot.java ./TimeoutInputStream.java ./NonClosingInputStream.java
 public class AvoidObstacles
     {
     
@@ -46,17 +46,19 @@ public class AvoidObstacles
 			posH = pioneer.getOrientation();
 			
 			//move back 5 cm
-			pioneer.move(-50);
+			pioneer.move((short)-50);
 			
 			//rotate right
 			//convert to deg
 			double deg = 180/Math.PI * posH;
 			//add to 90 deg
 			deg += 90;
-			pioneer.head(deg);
+			pioneer.head((short)deg);
 			
 			//move forward alittle
-			pioneer.move(20);
+			pioneer.move((short)20);
+			
+			return true;
 			
         }
 
@@ -73,13 +75,13 @@ public class AvoidObstacles
 			double unitX = vectX / mag;
 			double unitY = vectY / mag;
 			
-			short deg = Math.toDegrees(Math.atan((goalY-posY)/(goalX-posX)));
+			short deg = (short)Math.toDegrees(Math.atan((goalY-posY)/(goalX-posX)));
 			
 			//turn to goal
-			pioneer.head(deg);
+			pioneer.head((short)deg);
 			
 			//move forward
-			pioneer.move(20);
+			pioneer.move((short)20);
 			
 			
 			return true;
@@ -122,8 +124,10 @@ public class AvoidObstacles
 				System.out.println("Moving Forward");
                 goToGoal(sonars, robot);
             }
+			
+			Thread.sleep(10);
+			
         }
-        Thread.sleep(10);
         
         }
     }
