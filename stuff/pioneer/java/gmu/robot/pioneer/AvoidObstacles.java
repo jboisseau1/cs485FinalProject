@@ -7,7 +7,7 @@ public class AvoidObstacles
     {
     
 	
-		static double goalX = 1000;
+		static double goalX = 5000;
 		static double goalY = 0;
 		static double posX = 0;
 		static double posY = 0;
@@ -87,7 +87,7 @@ public class AvoidObstacles
 			return true;
         }
 
-    public static final double[] angles = {-90,-50,-30,-10,10,30,50,90,90,130,150,170,-170,-150,-130,-90};
+   
         
     public static void main( String[] args ) throws Exception
         {  
