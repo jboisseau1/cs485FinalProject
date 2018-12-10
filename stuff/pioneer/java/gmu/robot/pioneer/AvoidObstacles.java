@@ -7,7 +7,7 @@ public class AvoidObstacles
     {
     
 	
-		static double goalX = 5000;
+		static double goalX = 10000;
 		static double goalY = 0;
 		static double posX = 0;
 		static double posY = 0;
@@ -109,7 +109,7 @@ public class AvoidObstacles
             double[] sonars = robot.getSonars();
             
 			//if there is a obsticle in the front
-            if (robot.getSonar(2) < 500 || robot.getSonar(3) < 500 || robot.getSonar(4) < 500 || robot.getSonar(5) < 500) {
+            if (robot.getSonar(1) < 400 || robot.getSonar(2) < 400 || robot.getSonar(3) < 400 || robot.getSonar(4) < 400 || robot.getSonar(5) < 400 || robot.getSonar(6) < 400) {
 				System.out.println("*************************************************************************");
 				System.out.println("Go AWAY X:"+robot.getXPos()+ " Y:"+robot.getYPos());
 				for(int i = 0; i<16; i++){
@@ -135,7 +135,7 @@ public class AvoidObstacles
                 goToGoal(sonars, robot);
             }
 			
-			Thread.sleep(500);
+			Thread.sleep(200);
 			
         }
         
