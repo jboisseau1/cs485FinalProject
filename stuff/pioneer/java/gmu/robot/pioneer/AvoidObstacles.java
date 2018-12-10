@@ -105,7 +105,9 @@ public class AvoidObstacles
         robot.sonar( true );
         robot.enable( true );
 
-        while(true)
+		boolean going = true;
+		
+        while(going)
         {
             double[] sonars = robot.getSonars();
             
@@ -117,7 +119,9 @@ public class AvoidObstacles
 			//if reached the goal
 			else if(Math.abs(posX - goalX) < 80 && Math.abs(posY- goalY) < 80){
 				System.out.println("DONE!");
-				System.exit(0);
+				going = false;
+				robot.vel2((byte)-100,(byte)100);
+				robot.stop();
 			}
             else // forward
             {
