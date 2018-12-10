@@ -56,7 +56,7 @@ public class AvoidObstacles
 			pioneer.head((short)deg);
 			
 			//move forward alittle
-			pioneer.move((short)20);
+			pioneer.move((short)50);
 			
 			return true;
 			
@@ -95,9 +95,6 @@ public class AvoidObstacles
 		
         if (args.length<1)
             usage();
-
-        for(int x=0;x<angles.length;x++)
-            angles[x] = (angles[x] / 180) * Math.PI;
 
         PioneerRobot robot = new PioneerRobot();
         robot.setVerbose(true);
