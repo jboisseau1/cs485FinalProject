@@ -114,6 +114,10 @@ public class AvoidObstacles
 			//if there is a obsticle in the front
             if (sonars[3] < 250 || sonars[4] < 250) {
 				System.out.println("Go AWAY X:"+robot.getXPos()+ " Y:"+robot.getYPos());
+				for(int i = 0; i<16; i++){
+					System.out.print(i +": "+sonars[i]);
+				}
+				System.out.println("\n");
 				goAway( sonars, robot);
 			}
 			//if reached the goal
