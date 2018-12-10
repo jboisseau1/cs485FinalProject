@@ -4,7 +4,7 @@ package com.brianziman.robotics;
 import java.net.*;
 import java.io.*;
 import java.util.*;
-
+//Used to store data
 public static ArrayList<Integer> data = new ArrayList<Integer>();
 public static ArrayList<Integer> nonmes = new ArrayList<Integer>();
 public static int max, maxindex;
@@ -16,7 +16,7 @@ public class Hokuyo{
 	for(int i = 0; i < data.size()-1; i++){
       nonmes.set(i, 0);
     }
-  
+
     data = doDistanceCommand(start, end, cluster);
     getLongestDist();
 
