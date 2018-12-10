@@ -134,7 +134,7 @@ public class AvoidObstacles
                 goToGoal(sonars, robot);
             }
 			
-			Thread.sleep(10);
+			Thread.sleep(500);
 			
         }
         
