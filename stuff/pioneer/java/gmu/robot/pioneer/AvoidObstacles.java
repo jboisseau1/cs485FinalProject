@@ -1,18 +1,17 @@
 /*
  * Example.java
  */
-
 package gmu.robot.pioneer;
 
 public class AvoidObstacles
     {
     
 	
-		double goalX = 0;
-		double goalY = 1000;
-		double posX = 0;
-		double posY = 0;
-		double posH = 0;
+		static double goalX = 0;
+		static double goalY = 1000;
+		static double posX = 0;
+		static double posY = 0;
+		static double posH = 0;
 	
     static long every_time = 0;
     public static boolean every(long millis)
@@ -39,7 +38,7 @@ public class AvoidObstacles
 			return c;
         }
         
-    public static boolean goAway(double[] sonars, int numSonars, PioneerRobot robot)
+    public static boolean goAway(double[] sonars, PioneerRobot pioneer)
         {
 			//get position and orientation
 			posX = pioneer.getXPos();
@@ -61,14 +60,14 @@ public class AvoidObstacles
 			
         }
 
-    public static boolean goToGoal(double[] sonars, int numSonars, PioneerRobot robot)
+    public static boolean goToGoal(double[] sonars,  PioneerRobot pioneer)
         {
 			posX = pioneer.getXPos();
 			posY = pioneer.getYPos();
 			posH = pioneer.getOrientation();
 			
-			double vectX = goalX - robotX;
-			double vectY = goalY - robotY;
+			double vectX = goalX - posX;
+			double vectY = goalY - posY;
 			
 			double mag = Math.sqrt((vectX*vectX)+(vectY*vectY));
 			double unitX = vectX / mag;
@@ -103,40 +102,28 @@ public class AvoidObstacles
         robot.connect("localhost", Integer.parseInt(args[0]));
         robot.sonar( true );
         robot.enable( true );
-        int lastDirection = 0;
-        double scale = 1.5;
 
         while(true)
-            {
+        {
             double[] sonars = robot.getSonars();
-            int numSonars = (sonars.length < 16 ? sonars.length: 16);
-            int sum = 0;
-            double min = 10000;
-            for(int i = 0; i < numSonars; i++) 
-            { 
-				sum += sonars[i];
-				min = Math.min(min, sonars[i]);
+            
+			//if there is a obsticle in the front
+            if (sonars[3] < 80 || sonars[4] < 80) {
+				System.out.println("Go AWAY");
+				goAway( sonars, robot);
 			}
-                                
-            if (sum > 0)
+			//if reached the goal
+			else if(Math.abs(posX - goalX) < 80 && Math.abs(posY- goalY) < 80){
+				System.out.println("DONE!");
+				System.exit(0);
+			}
+            else // forward
             {
-				//if there is a obsticle in the front
-                if (sonars[3] < 80 || sonars[4] < 80) {
-					System.out.println("Go AWAY");
-					goAway( sonars, numSonars, robot);
-				}
-				//if reached the goal
-				else if(Math.abs(posX - goalX) < 80 && Math.abs(posY- goalY) < 80){
-					System.out.println("DONE!");
-					System.exit(0);
-				}
-                else // forward
-                {
-					System.out.println("Moving Forward");
-                    goToGoal(sonars, numSonars, pioneer);
-                }
+				System.out.println("Moving Forward");
+                goToGoal(sonars, robot);
             }
-            Thread.sleep(10);
-            }
+        }
+        Thread.sleep(10);
+        
         }
     }
