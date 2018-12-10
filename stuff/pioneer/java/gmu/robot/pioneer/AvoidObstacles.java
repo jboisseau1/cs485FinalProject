@@ -109,7 +109,8 @@ public class AvoidObstacles
             double[] sonars = robot.getSonars();
             
 			//if there is a obsticle in the front
-            if (robot.getSonar(2) < 200 || robot.getSonar(3) < 200 || robot.getSonar(4) < 200 || robot.getSonar(5) < 200) {
+            if (robot.getSonar(2) < 500 || robot.getSonar(3) < 500 || robot.getSonar(4) < 500 || robot.getSonar(5) < 500) {
+				System.out.println("*************************************************************************");
 				System.out.println("Go AWAY X:"+robot.getXPos()+ " Y:"+robot.getYPos());
 				for(int i = 0; i<16; i++){
 					System.out.print(" "+i +": "+sonars[i]);
