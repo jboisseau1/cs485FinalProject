@@ -28,5 +28,26 @@ public class tangentBug {
       {
         
       }
+    
+      //the main logic of tangentBugAlgorithm
+      boolean running = true;
+      boolean hitObstacle = false;
+      while(running){
+        //scan for obstacle
+        //set a distance to run till, i.e. check size of robot to allow for turning
+        /*if(hit obstacle){
+          hitObstacle = true;
+        }
+        //follow the obstacle and draw the line
+        while(hitObstacle){
+          //draw the line for the obstacle
+
+        }
+      
+        if(reached goal){
+          running = false;
+        }
+        */
+      }
   }
 }
