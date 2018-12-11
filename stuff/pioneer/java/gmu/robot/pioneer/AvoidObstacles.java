@@ -81,7 +81,7 @@ public class AvoidObstacles
 			pioneer.head((short)deg);
 			
 			//move forward
-			pioneer.move((short)20);
+			pioneer.move((short)30);
 			
 			
 			return true;
