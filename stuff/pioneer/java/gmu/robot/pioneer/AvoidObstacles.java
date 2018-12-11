@@ -7,7 +7,7 @@ public class AvoidObstacles
     {
     
 	
-		static double goalX = 8000;
+		static double goalX = 7000;
 		static double goalY = 0;
 		static double posX = 0;
 		static double posY = 0;
@@ -135,7 +135,7 @@ public class AvoidObstacles
                 goToGoal(sonars, robot);
             }
 			
-			Thread.sleep(100);
+			Thread.sleep(50);
 			
         }
         
