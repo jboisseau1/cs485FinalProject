@@ -7,7 +7,7 @@ public class AvoidObstacles
     {
     
 	
-		static double goalX = 5000;
+		static double goalX = 2500;
 		static double goalY = 0;
 		static double posX = 0;
 		static double posY = 0;
